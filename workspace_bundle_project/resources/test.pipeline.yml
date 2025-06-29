@@ -1,0 +1,20 @@
+resources:
+  pipelines:
+    test:
+      name: test
+      catalog: dev
+      channel: CURRENT
+      ingestion_definition:
+        connection_name: test_sales_force
+        objects:
+          - table:
+              destination_schema: bronze
+              source_schema: objects
+              source_table: Account
+              destination_catalog: dev
+          - table:
+              destination_schema: bronze
+              source_schema: objects
+              source_table: Contact
+              destination_catalog: dev
+      schema: default
