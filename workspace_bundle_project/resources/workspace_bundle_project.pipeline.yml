@@ -1,0 +1,13 @@
+# The main pipeline for workspace_bundle_project
+resources:
+  pipelines:
+    workspace_bundle_project_pipeline:
+      name: workspace_bundle_project_pipeline
+      catalog: test_mihir
+      schema: workspace_bundle_project_${bundle.target}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
